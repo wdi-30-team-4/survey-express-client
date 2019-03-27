@@ -19,6 +19,8 @@ const signUpFailure = () => {
 const signInSuccess = (responseData) => {
   $('form').trigger('reset')
   store.user = responseData.user
+  $('.navbar-nav').removeClass('hidden')
+  $('#navbarDropdownMenuLink').html(store.user.email)
   $('.sign-in-display').addClass('hidden')
   $('.swap-form-display').addClass('hidden')
 }
@@ -44,6 +46,7 @@ const changePasswordFailure = () => {
 const signOutSuccess = () => {
   $('#user-message').html('Successfully Signed-Out!')
   $('form').trigger('reset')
+  $('.navbar-nav').addClass('hidden')
   $('.swap-form-display').removeClass('hidden')
   store.user = {}
   showSignUpForm()
