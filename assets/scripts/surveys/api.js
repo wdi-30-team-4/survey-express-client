@@ -1,6 +1,7 @@
 'use strict'
 
 const config = require('../config')
+const store = require('../store.js')
 
 const getSurveys = function () {
   return $.ajax({
@@ -8,6 +9,23 @@ const getSurveys = function () {
   })
 }
 
+const createSurvey = function (formData) {
+  return $.ajax({
+    url: config.apiUrl + `/surveys`,
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: {
+      'survey': {
+        'title': formData.title,
+        'question': formData.question
+      }
+    }
+  })
+}
+
 module.exports = {
-  getSurveys
+  getSurveys,
+  createSurvey
 }
