@@ -1,0 +1,30 @@
+.survey-area {
+  width: 100%;
+}
+
+.surveys {
+  display: grid;
+  grid-gap: 3%;
+  grid-template-columns: 1fr 1fr 1fr;
+
+  .survey {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    padding: 1em 1em 6em;
+    position: relative;
+
+    .delete-survey {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+
+    form {
+      bottom: 0;
+      margin-bottom: 1em;
+      margin-left: -1em;
+      position: absolute;
+      text-align: center;
+      width: 100%;
+    }
+  }
+}
