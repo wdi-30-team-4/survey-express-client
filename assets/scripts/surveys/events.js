@@ -18,6 +18,13 @@ const onGetSurveys = (event) => {
   ui.getSurveysSuccess(data)
 }
 
+const onCreateSurvey = (event) => {
+  event.preventDefault()
+  api.getSurveys()
+    .then(ui.createSurveySuccess)
+    .catch(ui.createSurveyFailure)
+}
+
 const onTakeSurvey = (event) => {
   event.preventDefault()
   const surveyId = $(event.target).closest('div').data('id')
@@ -25,7 +32,7 @@ const onTakeSurvey = (event) => {
   const responseBoolean = radioValue === 'yes'
   api.takeSurvey(surveyId, responseBoolean)
     .then(ui.takeSurveySuccess)
-    .catch(ui.failure)
+    .catch(ui.takeSurveyFailure)
 }
 
 const onDeleteSurvey = (event) => {
@@ -40,5 +47,6 @@ const onDeleteSurvey = (event) => {
 module.exports = {
   onGetSurveys,
   onDeleteSurvey,
-  onTakeSurvey
+  onTakeSurvey,
+  onCreateSurvey
 }
