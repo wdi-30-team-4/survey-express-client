@@ -14,17 +14,19 @@
   <body>
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container">
-        <a class="navbar-brand" href="#">SurveyExpress</a>
-        <ul class="navbar-nav ml-auto hidden">
+    <nav class="navbar navbar-expand navbar-light bg-light">
+      <span class="navbar-text">
+        SurveyExpress
+      </span>
+      <div class="collapse navbar-collapse justify-content-end mr-5" id="navbarNavDropdown">
+        <ul class="navbar-nav hidden">
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" id="username" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a data-toggle=“modal” data-target=“#changePasswordModal” class="dropdown-item" href="#">Change Password</a>
-              <a class="dropdown-item" href="#">Sign Out</a>
-              <a class="dropdown-item" href="#">Sign In</a>
-              <a class="dropdown-item" href="#">Sign Up</a>
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              UserName
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="#" data-toggle="modal" data-target="#changePasswordModal">Change Password</a>
+              <a id="dropdown-sign-out-link" class="dropdown-item" href="#">Sign-Out</a>
             </div>
           </li>
         </ul>
@@ -36,17 +38,60 @@
       <h1>Welcome to SurveyExpress</h1>
       <div id="user-message"></div>
 
-      <section>
+      <section class="create-survey-area hidden">
         <h2>Create a new survey</h2>
-        <div id="create-survey"></div>
       </section>
 
-      <section>
+      <section class="survey-area hidden">
         <h2>All Surveys</h2>
-        <div id="create-survey">
-          
-        </div>
       </section>
+
+      <!-- sign-in-up forms -->
+      <div class="form-div">
+        <form id="sign-up-form" class="sign-up-display"> Sign-up
+          <input name="credentials[email]" type="email" placeholder="Email" required/>
+          <input name="credentials[password]" type="password" placeholder="Password" required/>
+          <input name="credentials[password_confirmation]" type="password" placeholder="Password Confirmation" required/>
+          <input type="submit" value="Submit" class="submit"/>
+        </form>
+
+        <form id="sign-in-form" class="sign-in-display hidden"> Sign-in
+          <input name="credentials[email]" type="email" placeholder="Email" required/>
+          <input name="credentials[password]" type="password" placeholder="Password" required/>
+          <input type="submit" value="Submit" class="submit"/>
+        </form>
+        </div>
+
+        <div class="swap-form-display">
+          <p class="swap-form-message">Already have an account?</p>
+          <a href="#" class="sign-in-button">Sign-in</a>
+          <a href="#" class="sign-up-button hidden">Sign-up</a>
+        </div>
+
+        <!-- Change Password Modal -->
+        <div class="modal fade" id="changePasswordModal" tabindex="-1" role="dialog" aria-labelledby="changePasswordModal" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="changePasswordModalCenterTitle">Change Password</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form id="change-password-form">
+                  <input name="passwords[old]" type="password" placeholder="Old Password" required/>
+                  <input name="passwords[new]" type="password" placeholder="New Password" required/>
+                </form>
+                <div id="modal-alert-message" class="modal-alert"></div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary close-password-modal">Close</button>
+                <button type="submit" form="change-password-form" class="btn btn-primary">Submit</button>
+              </div>
+            </div>
+          </div>
+        </div>
     </main>
 
     <!-- Footer -->
