@@ -1,10 +1,15 @@
 {{#each surveys as |survey|}}
 
-  <div class="survey" data-id="{{survey.id}}">
-      <p>Title:</small> {{limit survey.title 15}} </p>
-      <p>Question:</small> {{survey.question}} </p>
+  <div class="survey" data-id="{{survey._id}}">
+    <p>Title:</small> {{limit survey.title 15}} </p>
+    <p>Question:</small> {{survey.question}} </p>
 
-    <button type="submit" class="btn btn-primary take-survey">Take Survey</button>
+    <form>
+      <input type="radio" name="{{survey._id}}" value="yes">Yes
+      <input type="radio" name="{{survey._id}}" value="no"> No
+      <button type="submit" value="submit" class="btn btn-primary take-survey">Submit</button>
+    </form>
+
     <button type="submit" class="btn btn-danger delete-survey">Remove</button>
   </div>
 
