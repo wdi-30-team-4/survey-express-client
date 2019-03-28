@@ -1,6 +1,8 @@
 {{#each surveys as |survey|}}
 
   <div class="survey" data-id="{{survey._id}}">
+    <button type="submit" class="btn btn-danger delete-survey">Remove</button>
+    
     <p>Title:</small> {{limit survey.title 15}} </p>
     <p>Question:</small> {{survey.question}} </p>
 
@@ -10,7 +12,6 @@
       <button type="submit" value="submit" class="btn btn-primary take-survey">Submit</button>
     </form>
 
-    <button type="submit" class="btn btn-danger delete-survey">Remove</button>
   </div>
 
 {{/each}}
