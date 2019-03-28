@@ -99,6 +99,7 @@ const removeMessage = function () {
   stopTimeout()
   timeOut = setTimeout(() => {
     $('#user-message').html('')
+    $('#modal-alert-message').html('')
   }, 3500)
 }
 
