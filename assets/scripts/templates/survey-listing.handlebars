@@ -6,6 +6,10 @@
     <h4>{{limit survey.title 15}} </h4>
     <p>Question: {{survey.question}} </p>
 
+    {{#each survey.reducedResponses as |value key|}}
+        <p> {{key}}: {{value}}</p>
+    {{/each}}
+
     <form>
       <input type="radio" name="{{survey._id}}" value="{{survey.options.[0]}}">{{survey.options.[0]}}
       <input type="radio" name="{{survey._id}}" value="{{survey.options.[1]}}">{{survey.options.[1]}}
