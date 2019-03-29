@@ -1,19 +1,18 @@
 'use strict'
 
+const toastr = require('toastr')
 const store = require('../store.js')
 
 const signUpSuccess = () => {
-  $('#user-message').html('Sign-up successful, please sign in.')
+  toastr.success('Sign-up successful, please sign in.')
   $('form').trigger('reset')
   $('#sign-up-form').addClass('hidden')
-  removeMessage()
   showSignInForm()
 }
 
 const signUpFailure = () => {
-  $('#user-message').html('Error on Sign-up.')
+  toastr.failure('Error on Sign-up.')
   $('form').trigger('reset')
-  removeMessage()
 }
 
 const signInSuccess = (responseData) => {
@@ -28,25 +27,22 @@ const signInSuccess = (responseData) => {
 }
 
 const signInFailure = () => {
-  $('#user-message').html('Error on Sign-in.')
+  toastr.failure('Error on Sign-in.')
   $('form').trigger('reset')
-  removeMessage()
 }
 
 const changePasswordSuccess = () => {
   $('#modal-alert-message').html('Password Change Successful!')
   $('form').trigger('reset')
-  removeMessage()
 }
 
 const changePasswordFailure = () => {
   $('#modal-alert-message').html('Error Changing Password. Please try again.')
   $('form').trigger('reset')
-  removeMessage()
 }
 
 const signOutSuccess = () => {
-  $('#user-message').html('Successfully Signed-Out!')
+  toastr.success('Successfully Signed-Out!')
   $('form').trigger('reset')
   $('.navbar-nav').addClass('hidden')
   $('.swap-form-display').removeClass('hidden')
@@ -54,13 +50,11 @@ const signOutSuccess = () => {
   $('.survey-area').addClass('hidden')
   store.user = {}
   showSignUpForm()
-  removeMessage()
 }
 
 const signOutFailure = () => {
-  $('#user-message').html('Error Signing Out!')
+  toastr.failure('Error Signing Out!')
   $('form').trigger('reset')
-  removeMessage()
 }
 
 const showSignInForm = function () {
@@ -87,20 +81,6 @@ const closePasswordModal = function () {
   setTimeout(() => {
     $('#change-password-form').trigger('reset')
   }, 1500)
-}
-
-let timeOut = null
-
-const stopTimeout = function () {
-  clearTimeout(timeOut)
-}
-
-const removeMessage = function () {
-  stopTimeout()
-  timeOut = setTimeout(() => {
-    $('#user-message').html('')
-    $('#modal-alert-message').html('')
-  }, 3500)
 }
 
 module.exports = {
