@@ -14,6 +14,7 @@ const getSurveys = function () {
 }
 
 const createSurvey = function (formData) {
+  console.log("============", formData)
   return $.ajax({
     url: config.apiUrl + '/surveys',
     method: 'POST',

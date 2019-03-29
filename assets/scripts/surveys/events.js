@@ -22,7 +22,10 @@ const onGetSurveys = (event) => {
 
 const onCreateSurvey = (event) => {
   event.preventDefault()
-  api.getSurveys()
+  const form = event.target
+  const formData = getFormFields(form)
+
+  api.createSurvey(formData)
     .then(ui.createSurveySuccess)
     .catch(ui.createSurveyFailure)
 }
