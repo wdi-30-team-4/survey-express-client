@@ -4,7 +4,42 @@ const showSurveysTemplate = require('../templates/survey-listing.handlebars')
 const showMySurveysTemplate = require('../templates/my-survey-listing.handlebars')
 const store = require('../store.js')
 
+const reduceResponses = responses => {
+  return responses.reduce((acc, response) => {
+    acc[response.answer] = (acc[response.answer] || 0) + 1
+    return acc
+  }, {})
+}
+
+const addAnswers = (data) => {
+  console.log(data)
+  const surveyObjects = data.surveys
+  const newSurveyObjects = surveyObjects.map(survey => {
+    const reducedResponses = reduceResponses(survey.response)
+    console.log(reducedResponses)
+    survey['reducedResponses'] = reducedResponses
+    console.log('survey ===')
+    console.log(survey)
+    return data
+  })
+  // const allResponses = data.surveys.map(surveys => surveys.response)
+  // const indivSurveyResponses = allResponses.map(response => response.map((item) => item.answer))
+  // console.log('individual reponses', indivSurveyResponses)
+  // const answers = {indivSurveyResponses.map(item => item.reduce((acc, obj) => {
+  //   acc[obj] = (acc[obj] || 0) + 1
+  //   return acc
+  // }, {}))}
+  //
+  // data.surveys.forEach(function (item) { item['answers'] = answers })
+  // return data
+  return newSurveyObjects
+}
+
 const getSurveysSuccess = (data) => {
+  addAnswers(data)
+
+  console.log("====data====", data)
+
   const showSurveysHtml = showSurveysTemplate({ surveys: data.surveys })
   $('.surveys').html(showSurveysHtml)
 }
