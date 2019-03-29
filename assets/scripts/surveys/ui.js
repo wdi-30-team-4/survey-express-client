@@ -3,9 +3,13 @@
 const showSurveysTemplate = require('../templates/survey-listing.handlebars')
 
 const getSurveysSuccess = (data) => {
-  console.log(data)
   const showSurveysHtml = showSurveysTemplate({ surveys: data.surveys })
   $('.surveys').html(showSurveysHtml)
+}
+
+const getSurveysFailure = () => {
+  $('#alert-message').html('Failed to get surveys.')
+  removeMessage()
 }
 
 const createSurveySuccess = () => {
@@ -14,8 +18,29 @@ const createSurveySuccess = () => {
   removeMessage()
 }
 
-const createSurveyFailure = (data) => {
+const createSurveyFailure = () => {
   $('#user-message').html(`Failed to create survey.`)
+  $('form').trigger('reset')
+  removeMessage()
+}
+
+const deleteSurveySuccess = () => {
+  $('#user-message').html('Survey Deleted.')
+  removeMessage()
+}
+const deleteSurveyFailure = () => {
+  $('#user-message').html('Failed to delete survey.')
+  removeMessage()
+}
+
+const takeSurveySuccess = () => {
+  $('#user-message').html('Survey Completed!')
+  $('form').trigger('reset')
+  removeMessage()
+}
+
+const takeSurveyFailure = () => {
+  $('#user-message').html(`Failed to complete survey.`)
   $('form').trigger('reset')
   removeMessage()
 }
@@ -34,13 +59,13 @@ const removeMessage = function () {
   }, 3500)
 }
 
-const failure = (error) => {
-  console.error(error)
-}
-
 module.exports = {
   getSurveysSuccess,
+  getSurveysFailure,
   createSurveySuccess,
   createSurveyFailure,
-  failure
+  deleteSurveySuccess,
+  deleteSurveyFailure,
+  takeSurveySuccess,
+  takeSurveyFailure
 }
