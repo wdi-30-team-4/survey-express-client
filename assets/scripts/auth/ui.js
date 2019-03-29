@@ -11,7 +11,7 @@ const signUpSuccess = () => {
 }
 
 const signUpFailure = () => {
-  toastr.failure('Error on Sign-up.')
+  toastr.error('Error on Sign-up.')
   $('form').trigger('reset')
 }
 
@@ -27,7 +27,7 @@ const signInSuccess = (responseData) => {
 }
 
 const signInFailure = () => {
-  toastr.failure('Error on Sign-in.')
+  toastr.error('Error on Sign-in.')
   $('form').trigger('reset')
 }
 
@@ -53,7 +53,7 @@ const signOutSuccess = () => {
 }
 
 const signOutFailure = () => {
-  toastr.failure('Error Signing Out!')
+  toastr.error('Error Signing Out!')
   $('form').trigger('reset')
 }
 

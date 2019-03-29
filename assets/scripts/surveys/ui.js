@@ -11,7 +11,7 @@ const getSurveysSuccess = (data) => {
 }
 
 const getSurveysFailure = () => {
-  toastr.failure('Failed to get surveys.')
+  toastr.error('Failed to get surveys.')
 }
 
 const getMySurveysSuccess = (data) => {
@@ -21,7 +21,7 @@ const getMySurveysSuccess = (data) => {
 }
 
 const getMySurveysFailure = () => {
-  toastr.failure('Failed to get surveys.')
+  toastr.error('Failed to get surveys.')
 }
 
 const createSurveySuccess = () => {
@@ -30,7 +30,7 @@ const createSurveySuccess = () => {
 }
 
 const createSurveyFailure = () => {
-  toastr.failure(`Failed to create survey.`)
+  toastr.error(`Failed to create survey.`)
   $('form').trigger('reset')
 }
 
@@ -38,7 +38,7 @@ const deleteSurveySuccess = () => {
   toastr.success('Survey Deleted.')
 }
 const deleteSurveyFailure = () => {
-  toastr.failure('Failed to delete survey.')
+  toastr.error('Failed to delete survey.')
 }
 
 const takeSurveySuccess = () => {
@@ -47,7 +47,7 @@ const takeSurveySuccess = () => {
 }
 
 const takeSurveyFailure = () => {
-  toastr.failure(`Failed to complete survey.`)
+  toastr.error(`Failed to complete survey.`)
   $('form').trigger('reset')
 }
 
