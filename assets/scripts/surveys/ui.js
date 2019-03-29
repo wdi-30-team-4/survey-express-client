@@ -1,5 +1,6 @@
 'use strict'
 
+const toastr = require('toastr')
 const showSurveysTemplate = require('../templates/survey-listing.handlebars')
 const showMySurveysTemplate = require('../templates/my-survey-listing.handlebars')
 const store = require('../store.js')
@@ -10,8 +11,7 @@ const getSurveysSuccess = (data) => {
 }
 
 const getSurveysFailure = () => {
-  $('#alert-message').html('Failed to get surveys.')
-  removeMessage()
+  toastr.failure('Failed to get surveys.')
 }
 
 const getMySurveysSuccess = (data) => {
@@ -21,55 +21,34 @@ const getMySurveysSuccess = (data) => {
 }
 
 const getMySurveysFailure = () => {
-  $('#alert-message').html('Failed to get surveys.')
-  removeMessage()
+  toastr.failure('Failed to get surveys.')
 }
 
 const createSurveySuccess = () => {
-  $('#user-message').html('Survey Created!')
+  toastr.success('Survey Created!')
   $('form').trigger('reset')
-  removeMessage()
 }
 
 const createSurveyFailure = () => {
-  $('#user-message').html(`Failed to create survey.`)
+  toastr.failure(`Failed to create survey.`)
   $('form').trigger('reset')
-  removeMessage()
 }
 
 const deleteSurveySuccess = () => {
-  $('#user-message').html('Survey Deleted.')
-  removeMessage()
+  toastr.success('Survey Deleted.')
 }
 const deleteSurveyFailure = () => {
-  $('#user-message').html('Failed to delete survey.')
-  removeMessage()
+  toastr.failure('Failed to delete survey.')
 }
 
 const takeSurveySuccess = () => {
-  $('#user-message').html('Survey Completed!')
+  toastr.success('Survey Completed!')
   $('form').trigger('reset')
-  removeMessage()
 }
 
 const takeSurveyFailure = () => {
-  $('#user-message').html(`Failed to complete survey.`)
+  toastr.failure(`Failed to complete survey.`)
   $('form').trigger('reset')
-  removeMessage()
-}
-
-let timeOut = null
-
-const stopTimeout = function () {
-  clearTimeout(timeOut)
-}
-
-const removeMessage = function () {
-  stopTimeout()
-  timeOut = setTimeout(() => {
-    $('#user-message').html('')
-    $('#modal-alert-message').html('')
-  }, 3500)
 }
 
 module.exports = {
