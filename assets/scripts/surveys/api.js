@@ -5,13 +5,17 @@ const store = require('../store.js')
 
 const getSurveys = function () {
   return $.ajax({
-    url: config.apiUrl + '/surveys'
+    url: config.apiUrl + '/surveys',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
   })
 }
 
 const createSurvey = function (formData) {
   return $.ajax({
-    url: config.apiUrl + `/surveys`,
+    url: config.apiUrl + '/surveys',
     method: 'POST',
     headers: {
       Authorization: 'Token token=' + store.user.token

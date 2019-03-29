@@ -3,9 +3,13 @@
 const showSurveysTemplate = require('../templates/survey-listing.handlebars')
 
 const getSurveysSuccess = (data) => {
-  console.log(data)
   const showSurveysHtml = showSurveysTemplate({ surveys: data.surveys })
   $('.surveys').html(showSurveysHtml)
+}
+
+const getSurveysFailure = () => {
+  $('#alert-message').html('Failed to get surveys.')
+  removeMessage()
 }
 
 const createSurveySuccess = () => {
@@ -34,13 +38,9 @@ const removeMessage = function () {
   }, 3500)
 }
 
-const failure = (error) => {
-  console.error(error)
-}
-
 module.exports = {
   getSurveysSuccess,
+  getSurveysFailure,
   createSurveySuccess,
-  createSurveyFailure,
-  failure
+  createSurveyFailure
 }
