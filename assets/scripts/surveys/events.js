@@ -43,10 +43,10 @@ const onTakeSurvey = (event) => {
 const onDeleteSurvey = (event) => {
   event.preventDefault()
   const surveyId = $(event.target).closest('div').data('id')
-  console.log('surveyID: ', surveyId)
   api.deleteSurvey(surveyId)
+    .then(ui.deleteSurveySuccess)
     .then(() => onGetSurveys(event))
-    .catch(ui.failure)
+    .catch(ui.deleteSurveyFailure)
 }
 
 module.exports = {

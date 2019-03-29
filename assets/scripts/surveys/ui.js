@@ -24,6 +24,15 @@ const createSurveyFailure = (data) => {
   removeMessage()
 }
 
+const deleteSurveySuccess = () => {
+  $('#user-message').html('Survey Deleted.')
+  removeMessage()
+}
+const deleteSurveyFailure = () => {
+  $('#user-message').html('Failed to delete survey.')
+  removeMessage()
+}
+
 let timeOut = null
 
 const stopTimeout = function () {
@@ -42,5 +51,7 @@ module.exports = {
   getSurveysSuccess,
   getSurveysFailure,
   createSurveySuccess,
-  createSurveyFailure
+  createSurveyFailure,
+  deleteSurveySuccess,
+  deleteSurveyFailure
 }

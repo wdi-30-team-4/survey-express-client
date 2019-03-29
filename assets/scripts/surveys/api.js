@@ -14,7 +14,6 @@ const getSurveys = function () {
 }
 
 const createSurvey = function (formData) {
-  console.log("============", formData)
   return $.ajax({
     url: config.apiUrl + '/surveys',
     method: 'POST',
@@ -30,7 +29,18 @@ const createSurvey = function (formData) {
   })
 }
 
+const deleteSurvey = function (id) {
+  return $.ajax({
+    url: config.apiUrl + `/surveys/${id}`,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   getSurveys,
-  createSurvey
+  createSurvey,
+  deleteSurvey
 }
