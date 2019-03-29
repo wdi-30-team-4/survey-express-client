@@ -1,6 +1,8 @@
 'use strict'
 
 const showSurveysTemplate = require('../templates/survey-listing.handlebars')
+const showMySurveysTemplate = require('../templates/my-survey-listing.handlebars')
+const store = require('../store.js')
 
 const getSurveysSuccess = (data) => {
   const showSurveysHtml = showSurveysTemplate({ surveys: data.surveys })
@@ -8,6 +10,17 @@ const getSurveysSuccess = (data) => {
 }
 
 const getSurveysFailure = () => {
+  $('#alert-message').html('Failed to get surveys.')
+  removeMessage()
+}
+
+const getMySurveysSuccess = (data) => {
+  const userSurvey = data.surveys.filter((survey) => survey.owner === store.user._id)
+  const showMySurveysHtml = showMySurveysTemplate({ surveys: userSurvey })
+  $('.surveys').html(showMySurveysHtml)
+}
+
+const getMySurveysFailure = () => {
   $('#alert-message').html('Failed to get surveys.')
   removeMessage()
 }
@@ -67,5 +80,7 @@ module.exports = {
   deleteSurveySuccess,
   deleteSurveyFailure,
   takeSurveySuccess,
-  takeSurveyFailure
+  takeSurveyFailure,
+  getMySurveysSuccess,
+  getMySurveysFailure
 }
