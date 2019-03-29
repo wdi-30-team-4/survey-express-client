@@ -17,6 +17,11 @@ main {
   margin: auto 0;
 }
 
+.create-form-display {
+  display: flex;
+  flex-direction: column;
+}
+
 .form-div {
   background-color: $form-background-color;
   border-radius: 10px;

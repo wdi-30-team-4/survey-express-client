@@ -23,7 +23,9 @@ const createSurvey = function (formData) {
     data: {
       'survey': {
         'title': formData.title,
-        'question': formData.question
+        'question': formData.question,
+        'optionOne': formData.optionOne,
+        'optionTwo': formData.optionTwo
       }
     }
   })
