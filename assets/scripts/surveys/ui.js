@@ -51,6 +51,18 @@ const takeSurveyFailure = () => {
   $('form').trigger('reset')
 }
 
+const updateSurveySuccess = () => {
+  toastr.success(`Update successful!`)
+  $('form').trigger('reset')
+  $('body').removeClass('modal-open')
+  $('.modal-backdrop').remove()
+}
+
+const updateSurveyFailure = () => {
+  toastr.error(`Failed to update survey.`)
+  $('form').trigger('reset')
+}
+
 module.exports = {
   getSurveysSuccess,
   getSurveysFailure,
@@ -61,5 +73,7 @@ module.exports = {
   takeSurveySuccess,
   takeSurveyFailure,
   getMySurveysSuccess,
-  getMySurveysFailure
+  getMySurveysFailure,
+  updateSurveyFailure,
+  updateSurveySuccess
 }

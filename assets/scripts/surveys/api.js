@@ -56,9 +56,28 @@ const takeSurvey = function (surveyId, responseBoolean) {
   })
 }
 
+const updateSurvey = function (id, formData) {
+  console.log(formData)
+  return $.ajax({
+    url: config.apiUrl + `/surveys/${id}`,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: {
+      'survey': {
+        'title': formData.title,
+        'question': formData.question,
+        'options': [formData.optionOne, formData.optionTwo]
+      }
+    }
+  })
+}
+
 module.exports = {
   getSurveys,
   createSurvey,
   deleteSurvey,
-  takeSurvey
+  takeSurvey,
+  updateSurvey
 }

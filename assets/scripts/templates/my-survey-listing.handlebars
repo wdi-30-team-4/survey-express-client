@@ -8,9 +8,37 @@
     <p>Question: {{survey.question}} </p>
 
     <form>
-      <input type="radio" name="{{survey._id}}" value="{{survey.options.[0]}}">{{survey.options.[0]}}
-      <input type="radio" name="{{survey._id}}" value="{{survey.options.[1]}}">{{survey.options.[1]}}
-      <button type="submit" value="submit" class="btn btn-primary take-survey">Submit</button>
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#modal{{survey._id}}">
+        Update
+      </button>
+
+      <!-- Modal -->
+      <div class="modal fade" id="modal{{survey._id}}" tabindex="-1" role="dialog" aria-labelledby="modal{{survey._id}}Label" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="updateSurveyTitle">Update Survey</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form id="modal{{survey._id}}" class="update-display">
+                <label>Survey Title</label>
+                <input name="title" type="text" placeholder="Survey Title" value="{{survey.title}}"/><br>
+                <label>Question</label>
+                <input name="question" type="text" placeholder="Question" value="{{survey.question}}"/><br>
+                <label>Option One</label>
+                <input name="optionOne" type="text" placeholder="Option One" value="{{survey.options.[0]}}"/><br>
+                <label>Option Two</label>
+                <input name="optionTwo" type="text" placeholder="Option Two" value="{{survey.options.[1]}}"/><br>
+                <button id={{survey._id}} type="button" class="btn btn-primary update-survey">Save Changes</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
     </form>
 
   </div>
