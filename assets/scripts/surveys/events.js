@@ -59,10 +59,22 @@ const onDeleteSurvey = (event) => {
     .catch(ui.deleteSurveyFailure)
 }
 
+const onUpdateSurvey = (event) => {
+  event.preventDefault()
+  const form = event.target
+  const formData = getFormFields(form)
+
+  api.updateSurvey(formData)
+    .then(ui.createSurveySuccess)
+    .then(() => onGetSurveys(event))
+    .catch(ui.createSurveyFailure)
+}
+
 module.exports = {
   onGetSurveys,
   onDeleteSurvey,
   onTakeSurvey,
   onCreateSurvey,
-  onMyGetSurveys
+  onMyGetSurveys,
+  onUpdateSurvey
 }
