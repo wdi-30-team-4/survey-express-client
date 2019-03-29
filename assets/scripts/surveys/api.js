@@ -57,6 +57,7 @@ const takeSurvey = function (surveyId, responseBoolean) {
 }
 
 const updateSurvey = function (id, formData) {
+  console.log(formData)
   return $.ajax({
     url: config.apiUrl + `/surveys/${id}`,
     method: 'PATCH',

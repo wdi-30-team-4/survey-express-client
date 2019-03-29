@@ -54,10 +54,12 @@ const takeSurveyFailure = () => {
 const updateSurveySuccess = () => {
   toastr.success(`Update successful!`)
   $('form').trigger('reset')
+  $('body').removeClass('modal-open')
+  $('.modal-backdrop').remove()
 }
 
 const updateSurveyFailure = () => {
-  toastr.failure(`Failed to update survey.`)
+  toastr.error(`Failed to update survey.`)
   $('form').trigger('reset')
 }
 
