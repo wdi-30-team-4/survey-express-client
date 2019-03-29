@@ -11,6 +11,7 @@ const surveyEvents = require('./surveys/events.js')
 $(() => {
   $('#create-survey-form').on('submit', surveyEvents.onCreateSurvey)
   $('#getSurveysButton').on('click', surveyEvents.onGetSurveys)
+  $('#getMySurveysButton').on('click', surveyEvents.onMyGetSurveys)
   $('.surveys').on('click', '.delete-survey', surveyEvents.onDeleteSurvey)
   $('.surveys').on('click', '.take-survey', surveyEvents.onTakeSurvey)
 
