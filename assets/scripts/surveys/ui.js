@@ -18,7 +18,7 @@ const createSurveySuccess = () => {
   removeMessage()
 }
 
-const createSurveyFailure = (data) => {
+const createSurveyFailure = () => {
   $('#user-message').html(`Failed to create survey.`)
   $('form').trigger('reset')
   removeMessage()
@@ -30,6 +30,18 @@ const deleteSurveySuccess = () => {
 }
 const deleteSurveyFailure = () => {
   $('#user-message').html('Failed to delete survey.')
+  removeMessage()
+}
+
+const takeSurveySuccess = () => {
+  $('#user-message').html('Survey Completed!')
+  $('form').trigger('reset')
+  removeMessage()
+}
+
+const takeSurveyFailure = () => {
+  $('#user-message').html(`Failed to complete survey.`)
+  $('form').trigger('reset')
   removeMessage()
 }
 
@@ -53,5 +65,7 @@ module.exports = {
   createSurveySuccess,
   createSurveyFailure,
   deleteSurveySuccess,
-  deleteSurveyFailure
+  deleteSurveyFailure,
+  takeSurveySuccess,
+  takeSurveyFailure
 }
