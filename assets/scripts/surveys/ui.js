@@ -12,7 +12,6 @@ const reduceResponses = responses => {
 }
 
 const addAnswers = (data) => {
-  console.log(data)
   const surveyObjects = data.surveys
   const newSurveyObjects = surveyObjects.map(survey => {
     const reducedResponses = reduceResponses(survey.response)
