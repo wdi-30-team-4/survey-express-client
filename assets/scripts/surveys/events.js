@@ -65,9 +65,9 @@ const onUpdateSurvey = (event) => {
   const formData = getFormFields(form)
 
   api.updateSurvey(formData)
-    .then(ui.createSurveySuccess)
+    .then(ui.updateSurveySuccess)
     .then(() => onGetSurveys(event))
-    .catch(ui.createSurveyFailure)
+    .catch(ui.updateSurveyFailure)
 }
 
 module.exports = {

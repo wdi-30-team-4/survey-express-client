@@ -14,6 +14,7 @@ $(() => {
   $('#getMySurveysButton').on('click', surveyEvents.onMyGetSurveys)
   $('.surveys').on('click', '.delete-survey', surveyEvents.onDeleteSurvey)
   $('.surveys').on('click', '.take-survey', surveyEvents.onTakeSurvey)
+  $('.surveys').on('click', '.update-survey', surveyEvents.onUpdateSurvey)
 
   // authorization
   $('#sign-up-form').on('submit', authEvents.onSignUp)
