@@ -60,14 +60,10 @@ const onDeleteSurvey = (event) => {
 }
 
 const onUpdateSurvey = (event) => {
-  console.log(event)
   event.preventDefault()
   const form = $(event.target).closest('form')[0]
-  console.log(form)
   const formData = getFormFields(form)
-  console.log('formdata=====', formData)
   const id = event.target.id
-  console.log('IDDDDD', id)
 
   api.updateSurvey(id, formData)
     .then(ui.updateSurveySuccess)
