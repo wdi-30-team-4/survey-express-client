@@ -5,7 +5,25 @@ const showSurveysTemplate = require('../templates/survey-listing.handlebars')
 const showMySurveysTemplate = require('../templates/my-survey-listing.handlebars')
 const store = require('../store.js')
 
+const reduceResponses = responses => {
+  return responses.reduce((acc, response) => {
+    acc[response.answer] = (acc[response.answer] || 0) + 1
+    return acc
+  }, {})
+}
+
+const addAnswers = (data) => {
+  const surveyObjects = data.surveys
+  const newSurveyObjects = surveyObjects.map(survey => {
+    const reducedResponses = reduceResponses(survey.response)
+    survey['reducedResponses'] = reducedResponses
+    return data
+  })
+  return newSurveyObjects
+}
+
 const getSurveysSuccess = (data) => {
+  addAnswers(data)
   const showSurveysHtml = showSurveysTemplate({ surveys: data.surveys })
   $('.surveys').html(showSurveysHtml)
 }
