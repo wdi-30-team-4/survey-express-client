@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600');
+
+// base font settings
+body {
+  font-family: 'Open Sans', 'Segoe UI', Tahoma, sans-serif;
+  font-weight: 400;
+}
+
+// sass-lint:disable single-line-per-selector
+h1, h2, h3, h4, h5, h6, strong {
+  font-weight: 600;
+}
+
+input, select, textarea, button {
+  font-family: inherit;
+}
+
+// anchor links
+a {
+  color: inherit;
+}
+
+.hover-highlight {
+  position: relative;
+  text-decoration: none;
+
+  &::after {
+    background: #3998cd;
+    border-radius: 2px;
+    bottom: -2px;
+    content: '';
+    height: 3px;
+    left: 0;
+    margin-left: -6%;
+    opacity: .4;
+    position: absolute;
+    transition: .2s ease;
+    width: 112%;
+    z-index: -1;
+  }
+
+  &:hover {
+    color: inherit;
+    text-decoration: none;
+
+    &::after {
+      height: 100%;
+    }
+  }
+}
+
+
+// font sizing
+:root {
+  font-size: 18px;
+  // lower base font size on smaller screens
+  @media (max-width: 1200px) {
+    font-size: 18px;
+  }
+  @media (max-width: 1024px) {
+    font-size: 17px;
+  }
+  @media (max-width: 960px) {
+    font-size: 16px;
+  }
+  @media (max-width: 768px) {
+    font-size: 15px;
+  }
+}
+
+
+
+
+
