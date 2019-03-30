@@ -16,15 +16,16 @@ input, select, textarea, button {
 }
 
 // anchor links
-
-// sass-lint:disable force-pseudo-nesting
-a:not(.dropdown-item) {
+a {
   color: inherit;
+}
+
+.hover-highlight {
   position: relative;
   text-decoration: none;
 
   &::after {
-    background: #3998CD;
+    background: #3998cd;
     border-radius: 2px;
     bottom: -2px;
     content: '';
@@ -54,16 +55,16 @@ a:not(.dropdown-item) {
   font-size: 18px;
   // lower base font size on smaller screens
   @media (max-width: 1200px) {
-    font-size: 17px;
+    font-size: 18px;
   }
   @media (max-width: 1024px) {
-    font-size: 16px;
+    font-size: 17px;
   }
   @media (max-width: 960px) {
-    font-size: 15px;
+    font-size: 16px;
   }
   @media (max-width: 768px) {
-    font-size: 14px;
+    font-size: 15px;
   }
 }
 
