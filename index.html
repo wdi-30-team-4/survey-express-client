@@ -13,29 +13,39 @@
   </head>
   <body>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand navbar-light bg-light">
-      <span class="navbar-text">
-        SurveyExpress
-      </span>
-      <div class="collapse navbar-collapse justify-content-end mr-5" id="navbarNavDropdown">
-        <ul class="navbar-nav hidden">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              UserName
+    <!-- Header section -->
+    <header>
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand navbar-light bg-light">
+        <div class="container">
+
+          <span class="navbar-text">
+            <a href="#">
+              SurveyExpress <i class="fas fa-paper-plane"></i>
             </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="#" data-toggle="modal" data-target="#changePasswordModal">Change Password</a>
-              <a id="dropdown-sign-out-link" class="dropdown-item" href="#">Sign-Out</a>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </nav>
+          </span>
+          <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+            <ul class="navbar-nav hidden">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  UserName
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="#" data-toggle="modal" data-target="#changePasswordModal">Change Password</a>
+                  <a id="dropdown-sign-out-link" class="dropdown-item" href="#">Sign-Out</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    
+      <!-- Logo -->
+      <img class="logo-img" src="https://res.cloudinary.com/lucasl/image/upload/v1553965100/survey_express.png" alt="Survey Express Logo" />
+    </header>
 
     <!-- Main Content -->
     <main class="container">
-      <h1>Welcome to SurveyExpress</h1>
 
       <section class="create-survey-area hidden">
         <h2>Create a new survey</h2>
