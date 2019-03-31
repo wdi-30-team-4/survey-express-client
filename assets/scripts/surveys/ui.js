@@ -33,6 +33,7 @@ const getSurveysFailure = () => {
 }
 
 const getMySurveysSuccess = (data) => {
+  addAnswers(data)
   const userSurvey = data.surveys.filter((survey) => survey.owner === store.user._id)
   const showMySurveysHtml = showMySurveysTemplate({ surveys: userSurvey })
   $('.surveys').html(showMySurveysHtml)
