@@ -32,12 +32,14 @@ const signInFailure = () => {
 }
 
 const changePasswordSuccess = () => {
-  $('#modal-alert-message').html('Password Change Successful!')
+  $('#changePasswordModal').modal('hide')
+  toastr.success('Change Password Success!')
   $('form').trigger('reset')
 }
 
 const changePasswordFailure = () => {
-  $('#modal-alert-message').html('Error Changing Password. Please try again.')
+  $('#changePasswordModal').modal('hide')
+  toastr.error('Change Password Not Successful!')
   $('form').trigger('reset')
 }
 
