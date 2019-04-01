@@ -29,8 +29,20 @@ const addAnswers = (data) => {
   return newSurveyObjects
 }
 
+const addTakenProperty = (data) => {
+  const taken = {}
+  data.surveys.forEach((survey) => survey.response.some(response => {
+    if (response.owner === store.user._id) {
+      console.log(response._id)
+      taken[response._id] = true
+    }
+    survey['taken'] = taken
+  }))
+}
+
 const getSurveysSuccess = (data) => {
   addAnswers(data)
+  addTakenProperty(data)
   const showSurveysHtml = showSurveysTemplate({ surveys: data.surveys })
   $('.surveys').html(showSurveysHtml)
   $('#getSurveysButton').attr('disabled', 'disabled')
