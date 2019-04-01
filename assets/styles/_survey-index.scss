@@ -7,6 +7,10 @@
   grid-gap: 3%;
   grid-template-columns: 1fr 1fr 1fr;
 
+  .survey-area-title {
+    grid-column: 1 / 4;
+  }
+
   .survey {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     padding: 1em 1em 6em;
