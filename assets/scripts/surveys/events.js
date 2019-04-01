@@ -28,10 +28,14 @@ const onCreateSurvey = (event) => {
   const form = event.target
   const formData = getFormFields(form)
 
-  api.createSurvey(formData)
-    .then(ui.createSurveySuccess)
-    .then(() => onGetSurveys(event))
-    .catch(ui.createSurveyFailure)
+  if (formData.optionOne !== formData.optionTwo) {
+    api.createSurvey(formData)
+      .then(ui.createSurveySuccess)
+      .then(() => onGetSurveys(event))
+      .catch(ui.createSurveyFailure)
+  } else {
+    ui.userMessage('Error, options can not be the same.')
+  }
 }
 
 const onTakeSurvey = (event) => {
@@ -59,10 +63,14 @@ const onUpdateSurvey = (event) => {
   const formData = getFormFields(form)
   const id = event.target.id
 
-  api.updateSurvey(id, formData)
-    .then(ui.updateSurveySuccess)
-    .then(() => onGetSurveys(event))
-    .catch(ui.updateSurveyFailure)
+  if (formData.optionOne !== formData.optionTwo) {
+    api.updateSurvey(id, formData)
+      .then(ui.updateSurveySuccess)
+      .then(() => onGetSurveys(event))
+      .catch(ui.updateSurveyFailure)
+  } else {
+    ui.userMessage('Error, options can not be the same.')
+  }
 }
 
 module.exports = {
