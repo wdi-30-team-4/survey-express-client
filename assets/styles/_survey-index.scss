@@ -32,8 +32,16 @@
 
   @media (max-width: 1024px) {
     grid-template-columns: 1fr 1fr;
+
+    .survey-area-title {
+      grid-column: 1 / 3;
+    }
   }
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
+
+    .survey-area-title {
+      grid-column: 1 / 2;
+    }
   }
 }
