@@ -55,7 +55,7 @@ const onDeleteSurvey = (event) => {
   const surveyId = $(event.target).closest('div').data('id')
   api.deleteSurvey(surveyId)
     .then(ui.deleteSurveySuccess)
-    .then(() => onGetSurveys(event))
+    .then(() => onMyGetSurveys(event))
     .catch(ui.deleteSurveyFailure)
 }
 
