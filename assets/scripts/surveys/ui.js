@@ -141,6 +141,11 @@ const updateSurveyFailure = () => {
   $('form').trigger('reset')
 }
 
+const userMessage = (string) => {
+  toastr.error(string)
+  $('form').trigger('reset')
+}
+
 module.exports = {
   getSurveysSuccess,
   getSurveysFailure,
@@ -153,5 +158,6 @@ module.exports = {
   getMySurveysSuccess,
   getMySurveysFailure,
   updateSurveyFailure,
-  updateSurveySuccess
+  updateSurveySuccess,
+  userMessage
 }
