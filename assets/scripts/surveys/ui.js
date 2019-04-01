@@ -1,6 +1,6 @@
-import Chart from 'chart.js'
 'use strict'
 
+const Chart = require('chart.js')
 const toastr = require('toastr')
 const showSurveysTemplate = require('../templates/survey-listing.handlebars')
 const showMySurveysTemplate = require('../templates/my-survey-listing.handlebars')
@@ -45,35 +45,41 @@ const getSurveysSuccess = (data) => {
   addTakenProperty(data)
   const showSurveysHtml = showSurveysTemplate({ surveys: data.surveys })
   $('.surveys').html(showSurveysHtml)
-  // make charts
+  // create chart.js charts for all results that are displayed
   data.surveys.forEach(survey => {
-    console.log(Chart)
-    // eslint-disable-next-line
-    new Chart(document.getElementById(`bar-chart-${survey._id}`), {
-      type: 'horizontalBar',
-      data: {
-        labels: ['Yes', 'No'],
-        datasets: [
-          {
-            label: '',
-            backgroundColor: ['#3998cd', '#ff8945'],
-            data: [6, 3]
-          }
-        ]
-      },
-      options: {
-        legend: { display: false },
-        scales: {
-          xAxes: [
+    const [optionOne, optionTwo] = Object.keys(survey.reducedResponses)
+    if (survey.taken) {
+      // eslint-disable-next-line
+      new Chart(document.getElementById(`bar-chart-${survey._id}`), {
+        type: 'horizontalBar',
+        data: {
+          // labels on the Y axis of chart
+          labels: [optionOne, optionTwo],
+          datasets: [
             {
-              ticks: {
-                beginAtZero: true
-              }
+              label: '',
+              // colors of bars
+              backgroundColor: ['#3998cd', '#ff8945'],
+              // data to display
+              data: [survey.reducedResponses[optionOne], survey.reducedResponses[optionTwo]]
             }
           ]
+        },
+        options: {
+          legend: { display: false },
+          scales: {
+            xAxes: [
+              {
+                ticks: {
+                  beginAtZero: true,
+                  callback: function (value) { if (value % 1 === 0) { return value } }
+                }
+              }
+            ]
+          }
         }
-      }
-    })
+      })
+    }
   })
   $('#getSurveysButton').attr('disabled', 'disabled')
   $('#getMySurveysButton').removeAttr('disabled')

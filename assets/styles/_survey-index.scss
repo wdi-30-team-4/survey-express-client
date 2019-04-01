@@ -12,23 +12,28 @@
   }
 
   .survey {
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    padding: 1em 1em 6em;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .2);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1em;
     position: relative;
+
+    .card-bottom {
+      margin-top: 1em;
+    }
 
     .delete-survey {
       position: absolute;
       right: 0;
       top: 0;
     }
+  }
 
-    form {
-      bottom: 0;
-      margin-bottom: 1em;
-      margin-left: -1em;
-      position: absolute;
-      text-align: center;
-      width: 100%;
-    }
+  @media (max-width: 1024px) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
   }
 }
