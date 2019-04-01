@@ -45,6 +45,7 @@ const getSurveysSuccess = (data) => {
   const showSurveysHtml = showSurveysTemplate({ surveys: data.surveys })
   $('.surveys').html(showSurveysHtml)
   $('#getSurveysButton').attr('disabled', 'disabled')
+  $('#getMySurveysButton').removeAttr('disabled')
 }
 
 const getSurveysFailure = () => {
@@ -57,6 +58,7 @@ const getMySurveysSuccess = (data) => {
   const showMySurveysHtml = showMySurveysTemplate({ surveys: userSurvey })
   $('.surveys').html(showMySurveysHtml)
   $('#getSurveysButton').removeAttr('disabled')
+  $('#getMySurveysButton').attr('disabled', 'disabled')
 }
 
 const getMySurveysFailure = () => {
