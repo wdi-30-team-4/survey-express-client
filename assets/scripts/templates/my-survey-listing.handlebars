@@ -1,49 +1,54 @@
-{{#each surveys as |survey|}}
+<h2 class="survey-area-title">My Surveys</h2>
+{{#if surveys}}
+  {{#each surveys as |survey|}}
 
-  <div class="survey" data-id="{{survey._id}}">
-    <button type="submit" class="btn btn-danger delete-survey">x</button>
+    <article class="survey" data-id="{{survey._id}}">
+      <button type="submit" class="btn btn-danger delete-survey"><i class="fas fa-trash-alt"></i></button>
 
-    <h4>{{limit survey.title 15}} </h4>
-    <p>Question: {{survey.question}}</p>
+      <h4>{{limit survey.title 18}} </h4>
+      <p>Question: {{limit survey.question 60}}</p>
 
-    {{#each survey.reducedResponses as |value key|}}
-        <p> {{key}}: {{value}}</p>
-    {{/each}}
+      {{#each survey.reducedResponses as |value key|}}
+          <p> {{key}}: {{value}}</p>
+      {{/each}}
 
-    <form>
-      <!-- Button trigger modal -->
-      <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#modal{{survey._id}}">
-        Update
-      </button>
+      <form>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#modal{{survey._id}}">
+          Update
+        </button>
 
-      <!-- Modal -->
-      <div class="modal fade" id="modal{{survey._id}}" tabindex="-1" role="dialog" aria-labelledby="modal{{survey._id}}Label" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="updateSurveyTitle">Update Survey</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <form id="modal{{survey._id}}" class="update-display">
-                <label>Survey Title</label>
-                <input name="title" type="text" placeholder="Survey Title" value="{{survey.title}}"/><br>
-                <label>Question</label>
-                <input name="question" type="text" placeholder="Question" value="{{survey.question}}"/><br>
-                <label>Option One</label>
-                <input name="optionOne" type="text" placeholder="Option One" value="{{survey.options.[0]}}"/><br>
-                <label>Option Two</label>
-                <input name="optionTwo" type="text" placeholder="Option Two" value="{{survey.options.[1]}}"/><br>
-                <button id={{survey._id}} type="button" class="btn btn-primary update-survey">Save Changes</button>
-              </form>
+        <!-- Modal -->
+        <div class="modal fade" id="modal{{survey._id}}" tabindex="-1" role="dialog" aria-labelledby="modal{{survey._id}}Label" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="updateSurveyTitle">Update Survey</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form id="modal{{survey._id}}" class="update-display">
+                  <label>Survey Title</label>
+                  <input name="title" type="text" placeholder="Survey Title" value="{{survey.title}}"/><br>
+                  <label>Question</label>
+                  <input name="question" type="text" placeholder="Question" value="{{survey.question}}"/><br>
+                  <label>Option One</label>
+                  <input name="optionOne" type="text" placeholder="Option One" value="{{survey.options.[0]}}"/><br>
+                  <label>Option Two</label>
+                  <input name="optionTwo" type="text" placeholder="Option Two" value="{{survey.options.[1]}}"/><br>
+                  <button id={{survey._id}} type="button" class="btn btn-primary update-survey">Save Changes</button>
+                </form>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </form>
+      </form>
 
-  </div>
+    </article>
 
-{{/each}}
+  {{/each}}
+  {{else}}
+    <p> You have not created any surveys.</p>
+  {{/if}}

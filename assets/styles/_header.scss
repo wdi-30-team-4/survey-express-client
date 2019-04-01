@@ -8,12 +8,18 @@
 
   // adjust dropdown menu so it doesn't extend off screen
   .dropdown-menu {
-    margin-left: -250%;
+    margin-left: -90px;
     position: absolute;
   }
 
   // nav links and logo
-  .navbar-text a,
+  .navbar-text {
+    color: #333;
+    font-size: 1.1em;
+    font-weight: 600;
+    letter-spacing: .8px;
+  }
+
   .nav-item > .nav-link  {
     color: #333;
     font-size: 1.1em;
