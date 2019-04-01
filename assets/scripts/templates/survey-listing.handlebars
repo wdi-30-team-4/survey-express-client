@@ -1,26 +1,28 @@
 <h2 class="survey-area-title">All Surveys</h2>
 {{#each surveys as |survey|}}
 
-  <div class="survey" data-id="{{survey._id}}">
-    {{log survey}}
-
-    <h4>{{limit survey.title 15}} </h4>
-    <p>Question: {{survey.question}} </p>
-
+  <article class="survey" data-id="{{survey._id}}">
+    <div class="card-top">
+      <h4>{{limit survey.title 15}} </h4>
+      <p>Question: {{survey.question}} </p>
+    </div>
+    
+    <div class="card-bottom">
     {{#if survey.taken}}
-      {{#each survey.reducedResponses as |value key|}}
-          <p> {{key}}: {{value}}</p>
-      {{/each}}
 
-      {{else}}
+      <div class="chart-wrapper"><canvas id="bar-chart-{{survey._id}}" width="100%" height="30px"></canvas></div>
+    
+    {{else}}
 
     <form>
       <input type="radio" name="{{survey._id}}" value="{{survey.options.[0]}}"> {{survey.options.[0]}}
       <input type="radio" name="{{survey._id}}" value="{{survey.options.[1]}}"> {{survey.options.[1]}}
       <button type="submit" value="submit" class="btn btn-primary take-survey">Submit <i class="fas fa-paper-plane"></i></button>
     </form>
-    {{/if}}
 
-  </div>
+    {{/if}}
+    </div>
+
+  </article>
 
 {{/each}}

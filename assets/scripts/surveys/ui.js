@@ -1,5 +1,6 @@
 'use strict'
 
+const Chart = require('chart.js')
 const toastr = require('toastr')
 const showSurveysTemplate = require('../templates/survey-listing.handlebars')
 const showMySurveysTemplate = require('../templates/my-survey-listing.handlebars')
@@ -44,6 +45,42 @@ const getSurveysSuccess = (data) => {
   addTakenProperty(data)
   const showSurveysHtml = showSurveysTemplate({ surveys: data.surveys })
   $('.surveys').html(showSurveysHtml)
+  // create chart.js charts for all results that are displayed
+  data.surveys.forEach(survey => {
+    const [optionOne, optionTwo] = Object.keys(survey.reducedResponses)
+    if (survey.taken) {
+      // eslint-disable-next-line
+      new Chart(document.getElementById(`bar-chart-${survey._id}`), {
+        type: 'horizontalBar',
+        data: {
+          // labels on the Y axis of chart
+          labels: [optionOne, optionTwo],
+          datasets: [
+            {
+              label: '',
+              // colors of bars
+              backgroundColor: ['#3998cd', '#ff8945'],
+              // data to display
+              data: [survey.reducedResponses[optionOne], survey.reducedResponses[optionTwo]]
+            }
+          ]
+        },
+        options: {
+          legend: { display: false },
+          scales: {
+            xAxes: [
+              {
+                ticks: {
+                  beginAtZero: true,
+                  callback: function (value) { if (value % 1 === 0) { return value } }
+                }
+              }
+            ]
+          }
+        }
+      })
+    }
+  })
   $('#getSurveysButton').attr('disabled', 'disabled')
   $('#getMySurveysButton').removeAttr('disabled')
 }
