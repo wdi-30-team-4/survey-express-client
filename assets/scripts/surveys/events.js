@@ -45,6 +45,7 @@ const onTakeSurvey = (event) => {
   const surveyId = $(event.target).closest('div').data('id')
   const radioValue = $(`input[name='${surveyId}']:checked`).val()
   api.takeSurvey(surveyId, radioValue)
+    .then(() => onGetSurveys(event))
     .then(ui.takeSurveySuccess)
     .catch(ui.takeSurveyFailure)
 }
