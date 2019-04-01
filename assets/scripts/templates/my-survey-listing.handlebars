@@ -1,7 +1,7 @@
 <h2 class="survey-area-title">My Surveys</h2>
 {{#each surveys as |survey|}}
 
-  <div class="survey" data-id="{{survey._id}}">
+  <article class="survey" data-id="{{survey._id}}">
     <button type="submit" class="btn btn-danger delete-survey"><i class="fas fa-trash-alt"></i></button>
 
     <h4>{{limit survey.title 15}} </h4>
@@ -45,6 +45,6 @@
       </div>
     </form>
 
-  </div>
+  </article>
 
 {{/each}}

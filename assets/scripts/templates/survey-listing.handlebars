@@ -1,7 +1,7 @@
 <h2 class="survey-area-title">All Surveys</h2>
 {{#each surveys as |survey|}}
 
-  <div class="survey" data-id="{{survey._id}}">
+  <article class="survey" data-id="{{survey._id}}">
     <div class="card-top">
       <h4>{{limit survey.title 15}} </h4>
       <p>Question: {{survey.question}} </p>
@@ -23,6 +23,6 @@
     {{/if}}
     </div>
 
-  </div>
+  </article>
 
 {{/each}}
