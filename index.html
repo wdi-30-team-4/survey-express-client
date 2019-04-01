@@ -50,10 +50,10 @@
       <section class="create-survey-area hidden">
         <h2>Create a new survey</h2>
         <form id="create-survey-form" class="create-form-display">
-          <input name="title" type="text" placeholder="Survey Title" required/>
-          <input name="question" type="text" placeholder="Question" required/>
-          <input name="optionOne" type="text" placeholder="Option One" required/>
-          <input name="optionTwo" type="text" placeholder="Option Two" required/>
+          <input name="title" type="text" placeholder="Survey Title" maxlength="18"  required/>
+          <input name="question" type="text" placeholder="Question" maxlength="60" required/>
+          <input name="optionOne" type="text" placeholder="Option One" maxlength="14" required/>
+          <input name="optionTwo" type="text" placeholder="Option Two" maxlength="14"required/>
           <input type="submit" value="Create" class="submit"/>
         </form>
 
