@@ -11,11 +11,10 @@ const getFormFields = require('../../../lib/get-form-fields.js')
 // ]}
 
 const onGetSurveys = (event) => {
-  event.preventDefault()
-  const form = event.target
-  const formData = getFormFields(form)
-
-  api.getSurveys(formData)
+  if (event) {
+    event.preventDefault()
+  }
+  api.getSurveys()
     .then(ui.getSurveysSuccess)
     .catch(ui.getSurveysFailure)
 }
