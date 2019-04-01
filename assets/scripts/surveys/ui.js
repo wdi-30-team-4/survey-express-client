@@ -26,6 +26,7 @@ const getSurveysSuccess = (data) => {
   addAnswers(data)
   const showSurveysHtml = showSurveysTemplate({ surveys: data.surveys })
   $('.surveys').html(showSurveysHtml)
+  $('#getSurveysButton').attr('disabled', 'disabled')
 }
 
 const getSurveysFailure = () => {
@@ -37,6 +38,7 @@ const getMySurveysSuccess = (data) => {
   const userSurvey = data.surveys.filter((survey) => survey.owner === store.user._id)
   const showMySurveysHtml = showMySurveysTemplate({ surveys: userSurvey })
   $('.surveys').html(showMySurveysHtml)
+  $('#getSurveysButton').removeAttr('disabled')
 }
 
 const getMySurveysFailure = () => {
