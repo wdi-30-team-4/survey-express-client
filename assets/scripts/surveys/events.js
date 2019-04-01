@@ -10,8 +10,7 @@ const onGetSurveys = (event) => {
   }
   api.getSurveys()
     .then(ui.getSurveysSuccess)
-    // .catch(ui.getSurveysFailure)
-    .catch(console.log)
+    .catch(ui.getSurveysFailure)
 }
 
 const onMyGetSurveys = (event) => {
@@ -37,7 +36,7 @@ const onCreateSurvey = (event) => {
 
 const onTakeSurvey = (event) => {
   event.preventDefault()
-  const surveyId = $(event.target).closest('div').data('id')
+  const surveyId = $(event.target).closest('article').data('id')
   const radioValue = $(`input[name='${surveyId}']:checked`).val()
   api.takeSurvey(surveyId, radioValue)
     .then(() => onGetSurveys(event))
@@ -47,7 +46,7 @@ const onTakeSurvey = (event) => {
 
 const onDeleteSurvey = (event) => {
   event.preventDefault()
-  const surveyId = $(event.target).closest('div').data('id')
+  const surveyId = $(event.target).closest('article').data('id')
   api.deleteSurvey(surveyId)
     .then(ui.deleteSurveySuccess)
     .then(() => onMyGetSurveys(event))
