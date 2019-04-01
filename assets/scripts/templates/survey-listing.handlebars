@@ -1,23 +1,26 @@
 {{#each surveys as |survey|}}
 
   <div class="survey" data-id="{{survey._id}}">
-
-    <h4>{{limit survey.title 15}} </h4>
-    <p>Question: {{survey.question}} </p>
-
+    <div class="card-top">
+      <h4>{{limit survey.title 15}} </h4>
+      <p>Question: {{survey.question}} </p>
+    </div>
+    
+    <div class="card-bottom">
     {{#if survey.taken}}
-      {{#each survey.reducedResponses as |value key|}}
-        <div class="chart-wrapper"><canvas id="bar-chart-{{survey._id}}" width="100%" height="40px"></canvas></div>
-      {{/each}}
 
-      {{else}}
+      <div class="chart-wrapper"><canvas id="bar-chart-{{survey._id}}" width="100%" height="30px"></canvas></div>
+    
+    {{else}}
 
     <form>
       <input type="radio" name="{{survey._id}}" value="{{survey.options.[0]}}"> {{survey.options.[0]}}
       <input type="radio" name="{{survey._id}}" value="{{survey.options.[1]}}"> {{survey.options.[1]}}
       <button type="submit" value="submit" class="btn btn-primary take-survey">Submit</button>
     </form>
+
     {{/if}}
+    </div>
 
   </div>
 

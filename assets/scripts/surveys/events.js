@@ -10,7 +10,8 @@ const onGetSurveys = (event) => {
   }
   api.getSurveys()
     .then(ui.getSurveysSuccess)
-    .catch(ui.getSurveysFailure)
+    // .catch(ui.getSurveysFailure)
+    .catch(console.log)
 }
 
 const onMyGetSurveys = (event) => {
