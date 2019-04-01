@@ -33,6 +33,8 @@ const addTakenProperty = (data) => {
   data.surveys.forEach((survey) => survey.response.forEach(response => {
     if (response.owner === store.user._id) {
       survey.taken = true
+    } else {
+      survey.taken = false
     }
   }))
 }
