@@ -5,7 +5,25 @@
 
 // use require without a reference to ensure a file is bundled
 // require('./example')
+const authEvents = require('./auth/events.js')
+const surveyEvents = require('./surveys/events.js')
 
 $(() => {
-  // your JS code goes here
+  $('#create-survey-form').on('submit', surveyEvents.onCreateSurvey)
+  $('#getSurveysButton').on('click', surveyEvents.onGetSurveys)
+  $('#getMySurveysButton').on('click', surveyEvents.onMyGetSurveys)
+  $('.surveys').on('click', '.delete-survey', surveyEvents.onDeleteSurvey)
+  $('.surveys').on('click', '.take-survey', surveyEvents.onTakeSurvey)
+  $('.surveys').on('click', '.update-survey', surveyEvents.onUpdateSurvey)
+
+  // authorization
+  $('#sign-up-form').on('submit', authEvents.onSignUp)
+  $('#sign-in-form').on('submit', authEvents.onSignIn)
+  $('#dropdown-sign-out-link').on('click', authEvents.onSignOut)
+  $('#change-password-form').on('submit', authEvents.onChangePassword)
+  // Show sign-in-form
+  $('.sign-in-button').on('click', authEvents.onSignInButton)
+  // Show sign-up-form
+  $('.sign-up-button').on('click', authEvents.onSignUpButton)
+  $('.close-password-modal').on('click', authEvents.onClosePasswordModal)
 })

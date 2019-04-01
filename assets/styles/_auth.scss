@@ -1,0 +1,69 @@
+@import '~bootstrap/scss/bootstrap';
+
+$form-background-color: #D6D4D4;
+
+.display {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 85vw;
+}
+
+main {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin: auto 0;
+}
+
+.create-form-display {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-div {
+  background-color: $form-background-color;
+  border-radius: 10px;
+  height: 325px;
+}
+
+.sign-up-display {
+  display: flex;
+  flex-direction: column;
+  height: 60vh;
+  margin: 25px;
+  max-width: 350px;
+  min-height: 170px;
+  min-width: 275px;
+  width: 45vw;
+}
+
+.sign-in-display {
+  display: flex;
+  flex-direction: column;
+  height: 60vh;
+  margin: 25px;
+  max-width: 350px;
+  min-height: 145px;
+  min-width: 275px;
+  width: 45vw;
+}
+
+.submit {
+  border-radius: 5px;
+  margin: 5px 10px;
+  min-height: 35px;
+}
+
+.swap-form-display {
+  margin-bottom: 80px;
+
+  > .swap-form-message {
+    display: inline-block;
+  }
+}
+
+.hidden {
+  display: none;
+}

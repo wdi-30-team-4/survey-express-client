@@ -1,0 +1,47 @@
+// sass-lint:disable no-color-literals force-element-nesting
+
+.navbar {
+  background: rgba(57, 152, 205, .5);
+  border-bottom: 2px solid rgba(57, 152, 205, .7);
+  border-top: 1px solid rgba(57, 152, 205, .7);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .1);
+
+  // adjust dropdown menu so it doesn't extend off screen
+  .dropdown-menu {
+    margin-left: -250%;
+    position: absolute;
+  }
+
+  // nav links and logo
+  .navbar-text a,
+  .nav-item > .nav-link  {
+    color: #333;
+    font-size: 1.1em;
+    font-weight: 600;
+    letter-spacing: .8px;
+    transition: color .2s ease;
+
+    &:hover {
+      color: #3998cd;
+      text-decoration: none;
+    }
+  }
+
+  .nav-item > .nav-link {
+    font-weight: 400;
+  }
+}
+
+.logo-img {
+  display: block;
+  margin: 2em auto;
+  max-width: 600px;
+  width: 50%;
+
+  @media (max-width: 768px) {
+    width: 70%;
+  }
+  @media (max-width: 520px) {
+    width: 85%;
+  }
+}
