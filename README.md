@@ -19,6 +19,18 @@ survey not taken in the past.
 ## Wire Frames
 ![Imgur](https://i.imgur.com/4FjuJoq.jpg)
 
+## User Stories
+
+- As an unregistered user, I would like to sign up with email and password.
+- As a registered user, I would like to sign in with email and password.
+- As a signed in user, I would like to change password.
+- As a signed in user, I would like to sign out.
+- As a signed in user, I would like to create a survey with a title and  possible answers.
+- As a signed in user, I would like to update my survey's title and   possible answers of a survey.
+- As a signed in user, I would like to delete my survey.
+- As a signed in user, I would like to see all surveys and its answers.
+- As a signed in user, I would like to take a survey.
+
 ## Planning and Execution
   We started with designing wireframes and ERD.
   Meet in the morning and do a standup everyday. Prioritize and assign tasks.
