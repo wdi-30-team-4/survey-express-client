@@ -19,7 +19,18 @@ survey not taken in the past.
 ## Wire Frames
 ![Imgur](https://i.imgur.com/4FjuJoq.jpg)
 
-## Planning and Execution
+## User Stories
+- As an unregistered user, I would like to sign up with email and password.
+- As a registered user, I would like to sign in with email and password.
+- As a signed in user, I would like to change password.
+- As a signed in user, I would like to sign out.
+- As a signed in user, I would like to create a survey with a title and possible answers.
+- As a signed in user, I would like to update my survey's title and possible answers of a survey.
+- As a signed in user, I would like to delete my survey.
+- As a signed in user, I would like to see all surveys and its answers.
+- As a signed in user, I would like to take a survey.
+
+## Planning, Process, and Execution
   We started with designing wireframes and ERD.
   Meet in the morning and do a standup everyday. Prioritize and assign tasks.
   Two people worked on front-end and two on back-end.
@@ -30,6 +41,13 @@ survey not taken in the past.
   Add styling to the front-end.
   Deploy to GitHub and Heroku.
 
-## Reach Goal
-  Let user create a survey with more than two options.
-  Make a real-time dashboard.
+## Problem solving strategy
+  Our problem solving strategy was that if any one team member was stuck on one problem for
+  more than an hour we would all come together as a group to brainstorm possible solutions.
+  We found that having fresh eyes on a problem would often lead to new insights and ideas
+  that made solving it much easier.
+
+## Reach Goals & Unsolved Problems
+  - Let user create a survey with more than two options
+  - Make a real-time dashboard
+  - Make custom page routes so users can share links to their surveys
